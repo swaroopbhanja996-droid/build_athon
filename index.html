@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIRCUIT VIPER — Snake Arcade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="cabinet">
+
+    <div class="marquee">
+      <div class="marquee-bulbs top" aria-hidden="true"></div>
+      <h1 class="marquee-title">CIRCUIT<span>VIPER</span></h1>
+      <div class="marquee-bulbs bottom" aria-hidden="true"></div>
+    </div>
+
+    <div class="screen-frame">
+      <div class="hud">
+        <div class="hud-stat">
+          <span class="hud-label">SCORE</span>
+          <span class="hud-value" id="score">000</span>
+        </div>
+        <div class="hud-stat">
+          <span class="hud-label">BEST</span>
+          <span class="hud-value" id="best">000</span>
+        </div>
+        <div class="hud-stat">
+          <span class="hud-label">LEVEL</span>
+          <span class="hud-value" id="level">01</span>
+        </div>
+        <button class="icon-btn" id="muteBtn" aria-label="Toggle sound" aria-pressed="false">
+          <svg id="soundOnIcon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M4 9v6h4l5 5V4L8 9H4z"/><path fill="currentColor" d="M16.5 12c0-1.77-1-3.29-2.5-4.03v8.06c1.5-.74 2.5-2.26 2.5-4.03z"/></svg>
+          <svg id="soundOffIcon" viewBox="0 0 24 24" width="18" height="18" style="display:none"><path fill="currentColor" d="M4 9v6h4l5 5V4L8 9H4z"/><path fill="currentColor" d="M19 12l2.5-2.5-1-1L18 11l-2.5-2.5-1 1L17 12l-2.5 2.5 1 1L18 13l2.5 2.5 1-1z"/></svg>
+        </button>
+      </div>
+
+      <div class="screen">
+        <canvas id="gameCanvas" width="400" height="400" role="img" aria-label="Snake game board"></canvas>
+
+        <div class="overlay" id="startOverlay">
+          <p class="overlay-eyebrow">Press start to insert coin</p>
+          <button class="coin-btn" id="startBtn">START</button>
+          <p class="overlay-hint">Arrow keys / WASD to move &middot; Space to pause<br>On phone: swipe the screen</p>
+        </div>
+
+        <div class="overlay hidden" id="pauseOverlay">
+          <p class="overlay-eyebrow">Paused</p>
+          <button class="coin-btn" id="resumeBtn">RESUME</button>
+        </div>
+
+        <div class="overlay hidden" id="gameOverOverlay">
+          <p class="overlay-eyebrow">Game Over</p>
+          <p class="final-score" id="finalScore">Score: 0</p>
+          <p class="new-best hidden" id="newBestBadge">NEW BEST!</p>
+          <button class="coin-btn" id="retryBtn">RETRY</button>
+        </div>
+      </div>
+
+      <div class="scanlines" aria-hidden="true"></div>
+    </div>
+
+    <div class="control-deck">
+      <div class="dpad" aria-hidden="true">
+        <button class="dpad-btn dpad-up" data-dir="up">&#9650;</button>
+        <button class="dpad-btn dpad-left" data-dir="left">&#9664;</button>
+        <button class="dpad-btn dpad-right" data-dir="right">&#9654;</button>
+        <button class="dpad-btn dpad-down" data-dir="down">&#9660;</button>
+      </div>
+      <p class="deck-label">CIRCUIT VIPER &mdash; ONE PLAYER</p>
+    </div>
+
+  </div>
+
+<script src="js/game.js"></script>
+</body>
+</html>
